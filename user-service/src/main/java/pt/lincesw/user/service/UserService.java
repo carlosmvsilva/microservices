@@ -25,10 +25,10 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-	public UserVO getUserWithDepartment(Long userId) {
-		log.info("Inside getUserWithDepartment method of UserService.");
-		User user = userRepository.findByUserId(userId);
-		Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+user.getDepartmentId(), Department.class);
+	public UserVO getUserWithDepartmentByEmail(String email) {
+		log.info("Inside getUserWithDepartmentByEmail method of UserService.");
+		User user = userRepository.findByEmail(email);
+		Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+user.getDepartmentCode(), Department.class);
 		UserVO vo = new UserVO(user,department);
 		return vo;
 	}

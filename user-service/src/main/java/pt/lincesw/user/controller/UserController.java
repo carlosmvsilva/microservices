@@ -23,13 +23,13 @@ public class UserController {
 	
 	@PostMapping("/")
 	public User saveUser(@RequestBody User user) {
-		log.info("Inside saveUser of UserController");
+		log.info("Inside saveUser method of UserController");
 		return userService.saveUser(user);
 	}
 	
-	@GetMapping("/{id}")
-	public UserVO getUserWithDepartment(@PathVariable("id") Long userId) {
-		log.info("Inside getUserWithDepartment of UserController");
-		return userService.getUserWithDepartment(userId);
+	@GetMapping("/{email}")
+	public UserVO getUserWithDepartmentByEmail(@PathVariable("email") String email) {
+		log.info("Inside getUserWithDepartmentByEmail method of UserController");
+		return userService.getUserWithDepartmentByEmail(email);
 	}
 }

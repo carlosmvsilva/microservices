@@ -1,5 +1,6 @@
 package pt.lincesw.user.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,11 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userId;
+	private Long id;
 	private String firstName;
 	private String lastName;
+	@Column(unique = true)
 	private String email;
-	private Long departmentId;
+	private String departmentCode;
 	
 }

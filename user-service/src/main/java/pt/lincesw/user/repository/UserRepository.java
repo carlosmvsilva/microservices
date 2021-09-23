@@ -8,6 +8,6 @@ import pt.lincesw.user.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 
-	User findByUserId(Long userId);
+	User findByEmail(String email);
 	
 }

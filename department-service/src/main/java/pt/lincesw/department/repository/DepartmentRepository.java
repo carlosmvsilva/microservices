@@ -9,6 +9,6 @@ import pt.lincesw.department.entity.Department;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long>{
 
-	Department findByDepartmentId(Long departmentId);
+	Department findByCode(String code);
 
 }

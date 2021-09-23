@@ -1,5 +1,6 @@
 package pt.lincesw.department.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,10 @@ public class Department {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long departmentId;
-	private String departmentName;
-	private String departmentAddress;
-	private String departmentCode;
+	private Long id;
+	@Column(unique = true)
+	private String code;
+	private String name;
+	private String address;
 	
 }

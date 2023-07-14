@@ -1,7 +1,5 @@
 package online.inloco.user.controller;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import online.inloco.user.VO.ResponseVO;
 import online.inloco.user.VO.UserVO;
 import online.inloco.user.entity.User;
 import online.inloco.user.service.UserService;
@@ -25,9 +24,9 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping("/list")
-	public ResponseEntity<Collection<User>> listUsers() {
+	public ResponseEntity<ResponseVO> listUsers() {
 		log.info("Inside listUser method of UserController");
-		return ResponseEntity.ok().body(userService.list());
+		return ResponseEntity.ok(new ResponseVO());
 	}
 	
 	@PostMapping("/save")
